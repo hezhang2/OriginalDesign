@@ -1,3 +1,19 @@
+import processing.core.*; 
+import processing.data.*; 
+import processing.event.*; 
+import processing.opengl.*; 
+
+import java.util.HashMap; 
+import java.util.ArrayList; 
+import java.io.File; 
+import java.io.BufferedReader; 
+import java.io.PrintWriter; 
+import java.io.InputStream; 
+import java.io.OutputStream; 
+import java.io.IOException; 
+
+public class OriginalDesign extends PApplet {
+
 //Helen Zhang, Block 1, OriginalDesign
 
 boolean overOne, overTwo, overThree, overFour;
@@ -6,15 +22,15 @@ int txtSzTwo = 10;
 int txtSzThree = 10;
 int txtSzFour = 10;
 
-void setup(){
+public void setup(){
   	size(400,800);
 }
-void draw(){
+public void draw(){
   	background(200, 213, 213);
   	sections();
 }
 
-void sections(){
+public void sections(){
 	fill(70);
   	hover();
 	firstA();
@@ -23,7 +39,7 @@ void sections(){
 	fourthA();
 }
 
-void firstA(){
+public void firstA(){
 	if (overOne == true){
 		if (txtSzOne<50){
 		txtSzOne += 5;
@@ -36,7 +52,7 @@ void firstA(){
 	textSize(txtSzOne);
 	text("O N E", 50, 100);
 }
-void secondA(){
+public void secondA(){
 	if (overTwo == true){
 		if(txtSzTwo<50){
 			txtSzTwo += 5;
@@ -49,7 +65,7 @@ void secondA(){
 	textSize(txtSzTwo);
 	text("T W O", 50, 300);
 }
-void thirdA(){
+public void thirdA(){
 	if (overThree == true){
 		if(txtSzThree<50){
 			txtSzThree += 5;
@@ -62,7 +78,7 @@ void thirdA(){
 	textSize(txtSzThree);
 	text("T H R E E", 50, 500);
 }
-void fourthA(){
+public void fourthA(){
 	if (overFour == true){
 		if(txtSzFour<50){
 			txtSzFour += 5;
@@ -75,7 +91,7 @@ void fourthA(){
 	textSize(txtSzFour);
 	text("F O U R", 50, 700);
 }
-void hover(){
+public void hover(){
 	if (mouseY >= 0 && mouseY <= 200){
 		overOne = true;
 		overTwo = false;
@@ -97,4 +113,13 @@ void hover(){
 		overThree = false;
 		overFour = true;
 	}
+}
+  static public void main(String[] passedArgs) {
+    String[] appletArgs = new String[] { "OriginalDesign" };
+    if (passedArgs != null) {
+      PApplet.main(concat(appletArgs, passedArgs));
+    } else {
+      PApplet.main(appletArgs);
+    }
+  }
 }
